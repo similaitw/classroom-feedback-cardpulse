@@ -8,10 +8,11 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "eslint src tests eslint.config.mjs",
+    "lint": "eslint src tests scripts/*.mjs eslint.config.mjs",
     "test": "npm run build && node --test tests/*.test.mjs",
     "benchmark:frame": "npm run build && node tests/benchmark-frame.mjs",
     "benchmark:collector": "npm run build && node tests/benchmark-collector.mjs",
+    "benchmark:captures": "npm run build && node scripts/benchmark-captures.mjs",
     "references:generate": "python scripts/generate_references.py",
     "references:check": "python scripts/generate_references.py --check"
   },

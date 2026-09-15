@@ -8,7 +8,26 @@ Phase 0 is a hard gate. Do not build substantial Phase 1–5 product UI until th
 ## Current task
 **M0.4 — Real-phone classroom benchmark dataset and quantitative thresholds**
 
-Queued, not started in M0.3. Phase 0 remains open; the real-phone classroom gate has not passed.
+PC/repository engineering completed; real-phone capture and evaluation remain pending. Phase 0 remains open; the real-phone classroom gate has not passed.
+
+### M0.4 PC engineering (2026-09-15)
+
+- [x] Versioned real-capture JSON Schema and strict runtime validation: provenance/split, device/conditions, ordered source timestamps, official card ID/answer/box annotations, file hashes and dimensions.
+- [x] Capture/annotation protocol, independent held-out split, official 1–63 and four-answer coverage, negative/stress clips, local media handling.
+- [x] Local CLI through `npm run benchmark:captures -- <manifest> <output-directory> [--validate-only]`; canonical grayscale PGM replay through unchanged `scanFrame()` and `TemporalCollector`.
+- [x] Geometry-first frame metrics, collection recall/wrong locks/latency, PC scan timing, condition strata, raw detections/rejections/events and reproducibility hashes in JSON/Markdown reports.
+- [x] Proposed quantitative targets and explicit distinction between pooled PC checks and reviewed on-device gate evidence. See [CAPTURE_BENCHMARK.md](CAPTURE_BENCHMARK.md).
+- [ ] Acquire and independently annotate real-phone official-card classroom captures.
+- [ ] Pilot/freeze targets, evaluate held-out coverage and measure sustained active-camera phone performance before M0.5 review.
+
+### M0.4 PC validation evidence
+
+- `npm test`: 119/119 passed (115 existing + 4 harness tests); TypeScript build passed.
+- `node --test tests/benchmark-captures.test.mjs`: 4/4 passed after final harness edits; covers malformed schema, metric errors/duplicates/misses, negative and empty denominators, raster integrity, hash rejection, sequence reset, CLI validation/report generation and overwrite refusal.
+- `npm run typecheck`, `npm run lint`, `git diff --check`: passed.
+- `npm run benchmark:captures -- tmp/m04-pc-smoke/manifest.json benchmark-results/m04-pc-smoke`: passed; local ignored JSON/Markdown artifacts, PDF-derived development data only, 60 repeated frames / 2 sequences, 150 annotated card instances and 30 negative frames. Joint precision/recall 100%; negative false-positive frames 0/30; collection 5/5, wrong locks 0, observation p95 200 ms; PC scan median 13.78 ms / p95 26.85 ms (60 samples including negative frames, 3 warmups per sequence). These correlated fixtures are harness smoke evidence, not classroom accuracy evidence.
+- Every report keeps Phase 0 `NOT_EVALUATED`. Current task stays M0.4 until real-phone work is complete; no later UI or M0.5 approval is included.
+- No commit, push, PR or GitHub issue modification, per explicit control-issue #13 instructions.
 
 ## Completed task — M0.3
 **Video-frame deduplication + stable response collection**

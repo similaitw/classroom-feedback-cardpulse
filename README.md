@@ -24,6 +24,8 @@ Next.js + TypeScript + Tailwind CSS + Supabase + PWA，部署目標為 Vercel。
 
 ## M0.1 scanner baseline
 
+M0.4 的 PC benchmark harness 已提供 real-capture schema、擷取／標註協定、逐幀與 collector 指標、JSON／Markdown 報告和建議量化門檻。用法見 [capture benchmark 文件](docs/CAPTURE_BENCHMARK.md)。目前沒有真實手機資料，M0.4 實拍驗證及 Phase 0 gate 仍未完成。
+
 M0.3 已新增 browser-compatible `TemporalCollector`，提供跨影格穩定確認、每題每卡一次提交與題目 token 隔離。政策、API、測試與效能見 [temporal collector 文件](docs/SCANNER_TEMPORAL.md)。
 
 M0.2 已新增完整 still-frame `detectCandidates()` / `scanFrame()`，支援同框多卡自動四角定位、幾何去重與既有 decoder。API、測試及效能限制見 [多卡 scanner 文件](docs/SCANNER_MULTICARD.md)。
