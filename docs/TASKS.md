@@ -6,14 +6,19 @@
 Phase 0 is a hard gate. Do not build substantial Phase 1–5 product UI until the scanner POC demonstrates reliable official Plickers Card 1–63 recognition in representative classroom conditions.
 
 ## Current task
+**M0.2 — Multi-card candidate detection + perspective normalization**
+
+Queued, not started in M0.1. Phase 0 remains open; the real-phone classroom gate has not passed.
+
+## Completed task
 **M0.1 — Build reference-set extraction + single-card decoder baseline**
 
 ### Goal
 Create the first executable scanner baseline that can identify official Plickers card ID and orientation from still images/reference captures.
 
 ### Required work
-- [ ] Create minimal TypeScript/JS project shell suitable for Next.js integration later.
-- [ ] Add a scanner module with a stable output contract:
+- [x] Create minimal TypeScript/JS project shell suitable for Next.js integration later.
+- [x] Add a scanner module with a stable output contract:
   ```ts
   type ScanDetection = {
     cardId: number;
@@ -21,13 +26,21 @@ Create the first executable scanner baseline that can identify official Plickers
     confidence: number;
   };
   ```
-- [ ] Establish a reproducible reference-data generation path for official Plickers Cards 1–63.
-- [ ] Normalize a candidate card image with perspective correction/canonical orientation handling.
-- [ ] Implement baseline card-pattern matching for known IDs 1–63.
-- [ ] Implement 0°/90°/180°/270° orientation inference and map it to A/B/C/D.
-- [ ] Add confidence scoring and a rejection threshold for uncertain matches.
-- [ ] Add tests for known card IDs and rotations using generated/golden fixtures where legally/practically usable.
-- [ ] Document assumptions and known limitations.
+- [x] Establish a reproducible reference-data generation path for official Plickers Cards 1–63.
+- [x] Normalize a candidate card image with perspective correction/canonical orientation handling.
+- [x] Implement baseline card-pattern matching for known IDs 1–63.
+- [x] Implement 0°/90°/180°/270° orientation inference and map it to A/B/C/D.
+- [x] Add confidence scoring and a rejection threshold for uncertain matches.
+- [x] Add tests for known card IDs and rotations using generated/golden fixtures where legally/practically usable.
+- [x] Document assumptions and known limitations.
+
+### Completion evidence (2026-09-15)
+- `npm test`: 81 tests passed, including all 63 IDs × 4 rotations and 9 independent official PDF golden crops × 4 rotations × 3 conditions (original, perspective, perspective with exposure/noise).
+- `npm run build`, `npm run typecheck`, `npm run lint`: passed.
+- `npm run references:check`: byte-identical regeneration of all 63 references and 9 golden crops; 252 unique ID/orientation pairs.
+- Source PDF is pinned by URL and SHA-256; extraction validates printed IDs and letter placement. See [SCANNER_BASELINE.md](SCANNER_BASELINE.md) for reproduction, thresholds, contract and limitations.
+- This completes the M0.1 reference-image baseline only. No real-phone captures were used; Phase 0 classroom acceptance remains unproven.
+- Per this task's explicit instructions, evidence is recorded locally; no commit, push, PR or GitHub issue update was performed.
 
 ### Acceptance criteria
 - Given at least a representative subset of official Card 1–63 reference images, decoder returns the correct `cardId` for all tested fixtures.

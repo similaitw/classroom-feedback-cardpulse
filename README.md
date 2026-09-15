@@ -21,3 +21,14 @@ Next.js + TypeScript + Tailwind CSS + Supabase + PWA，部署目標為 Vercel。
 目前優先進行 **Phase 0：Plickers 相容掃描器 POC**。在掃描器可行性通過驗收前，不大量投入後續產品 UI。
 
 詳細規格見 `PROJECT_SPEC.md`，任務狀態見 `docs/TASKS.md`。
+
+## M0.1 scanner baseline
+
+已建立純 TypeScript 單卡模組，支援官方 1–63 參考比對、四方向、透視正規化及低信心拒絕。輸入是灰階影像與呼叫端提供的圖樣四角。
+
+```powershell
+npm ci --cache .npm-cache
+npm test
+```
+
+Node.js 22+；測試不需要 Python 或重新下載 PDF。API、官方參考資料重建方式、方向與閾值見 [scanner 文件](docs/SCANNER_BASELINE.md)。目前僅通過 PDF / generated 基線，Phase 0 的手機教室實拍驗收尚未通過。
