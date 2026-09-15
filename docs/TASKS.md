@@ -6,9 +6,27 @@
 Phase 0 is a hard gate. Do not build substantial Phase 1–5 product UI until the scanner POC demonstrates reliable official Plickers Card 1–63 recognition in representative classroom conditions.
 
 ## Current task
-**M0.3 — Video-frame deduplication + stable response collection**
+**M0.4 — Real-phone classroom benchmark dataset and quantitative thresholds**
 
-Queued, not started in M0.2. Phase 0 remains open; the real-phone classroom gate has not passed.
+Queued, not started in M0.3. Phase 0 remains open; the real-phone classroom gate has not passed.
+
+## Completed task — M0.3
+**Video-frame deduplication + stable response collection**
+
+- [x] Browser-compatible collector over `scanFrame()` results; independent cardId state.
+- [x] Observation count + elapsed-time confirmation, transient miss tolerance, irregular timestamp handling.
+- [x] First stable answer locks the card for the question; pre-confirmation answer changes restart evidence.
+- [x] Uncertain/low-confidence exclusion, same-frame duplicate/conflict handling, per-question deduplication.
+- [x] Explicit question start/reset and token isolation of delayed old-question frames.
+- [x] Deterministic sequences and official PDF multi-card integration; all M0.1/M0.2 regressions retained.
+- [x] Policy, parameters, transitions, benchmark and limitations in [SCANNER_TEMPORAL.md](SCANNER_TEMPORAL.md).
+
+### Completion evidence (2026-09-15)
+- `npm test`: 115 tests passed (103 existing + 12 temporal); build passed.
+- `npm run typecheck`, `npm run lint`: passed.
+- `npm run benchmark:collector`: Windows x64 / Node v24.18.0, 63 cards; 30 batches of 4000 frames after 5 warmup batches. Batch-mean per-frame median 0.008009 ms / p95 0.008147 ms; excludes scanner/camera.
+- Temporal sequence and official PDF-derived evidence only; real-phone classroom acceptance remains unproven.
+- No commit, push, PR or GitHub issue modification, per explicit control-issue instructions.
 
 ## Completed task — M0.2
 **Multi-card candidate detection + perspective normalization**
@@ -76,7 +94,7 @@ Create the first executable scanner baseline that can identify official Plickers
 
 ## Phase 0 backlog
 - [x] M0.2 — Multi-card candidate detection + perspective normalization
-- [ ] M0.3 — Video-frame deduplication + stable response collection
+- [x] M0.3 — Video-frame deduplication + stable response collection
 - [ ] M0.4 — Real-phone classroom benchmark dataset and quantitative thresholds
 - [ ] M0.5 — Phase 0 gate review: pass/fail and architecture decision
 
