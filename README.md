@@ -24,6 +24,8 @@ Next.js + TypeScript + Tailwind CSS + Supabase + PWA，部署目標為 Vercel。
 
 ## M0.1 scanner baseline
 
+M0.2 已新增完整 still-frame `detectCandidates()` / `scanFrame()`，支援同框多卡自動四角定位、幾何去重與既有 decoder。API、測試及效能限制見 [多卡 scanner 文件](docs/SCANNER_MULTICARD.md)。
+
 已建立純 TypeScript 單卡模組，支援官方 1–63 參考比對、四方向、透視正規化及低信心拒絕。輸入是灰階影像與呼叫端提供的圖樣四角。
 
 ```powershell

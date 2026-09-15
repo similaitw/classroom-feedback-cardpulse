@@ -6,9 +6,26 @@
 Phase 0 is a hard gate. Do not build substantial Phase 1–5 product UI until the scanner POC demonstrates reliable official Plickers Card 1–63 recognition in representative classroom conditions.
 
 ## Current task
-**M0.2 — Multi-card candidate detection + perspective normalization**
+**M0.3 — Video-frame deduplication + stable response collection**
 
-Queued, not started in M0.1. Phase 0 remains open; the real-phone classroom gate has not passed.
+Queued, not started in M0.2. Phase 0 remains open; the real-phone classroom gate has not passed.
+
+## Completed task — M0.2
+**Multi-card candidate detection + perspective normalization**
+
+- [x] Browser-compatible full-frame detector; clockwise pattern-boundary `Quad` output.
+- [x] Rotation, scale, perspective and exposure variation; geometric polygon-IoU NMS.
+- [x] Multi-card `scanFrame()` calls existing `scanCandidate()`; deterministic ordering and uncertain isolation.
+- [x] 2–5 card official PDF golden composites, four orientations, multiple positions/sizes, perspective, lighting and distractors.
+- [x] Negative frames produce zero successful detections; all M0.1 regressions pass.
+- [x] Document pipeline, parameters, reproducible benchmark and limitations in [SCANNER_MULTICARD.md](SCANNER_MULTICARD.md).
+
+### Completion evidence (2026-09-15)
+- `npm test`: 103 tests passed (including all 81 M0.1 tests); build passed.
+- `npm run typecheck`, `npm run lint`: passed.
+- `npm run benchmark:frame`: Windows x64 / Node v24.18.0, five cards in 640×420; 30 warmed samples, median 39.61 ms / p95 43.48 ms.
+- Official PDF-derived composite evidence only, no real-phone captures. Phase 0 classroom acceptance remains unproven.
+- Per the explicit control-issue task instructions, no commit, push, PR or GitHub issue modification was performed.
 
 ## Completed task
 **M0.1 — Build reference-set extraction + single-card decoder baseline**
@@ -58,7 +75,7 @@ Create the first executable scanner baseline that can identify official Plickers
 - Production deployment
 
 ## Phase 0 backlog
-- [ ] M0.2 — Multi-card candidate detection + perspective normalization
+- [x] M0.2 — Multi-card candidate detection + perspective normalization
 - [ ] M0.3 — Video-frame deduplication + stable response collection
 - [ ] M0.4 — Real-phone classroom benchmark dataset and quantitative thresholds
 - [ ] M0.5 — Phase 0 gate review: pass/fail and architecture decision
