@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.tools/
+tmp/
+.npm-cache/
+__pycache__/

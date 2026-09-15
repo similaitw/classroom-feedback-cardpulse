@@ -1,0 +1,132 @@
+{
+  "sourceUrl": "https://assets.plickers.com/plickers-cards/PlickersCards_2up_1-63.pdf",
+  "sourceSha256": "9b782fd5e62f0f9edd861b0678920caad008d3c005298e201f103330443d3f33",
+  "fixtures": [
+    {
+      "cardId": 1,
+      "file": "card-01.pgm",
+      "page": 1,
+      "slot": 0,
+      "topAnswer": "A",
+      "answersCW": [
+        "A",
+        "D",
+        "C",
+        "B"
+      ],
+      "sha256": "dcfb293651522fcdc92afd2efd06dbafbbaf6377f0f5ac6acd519a0a5f2eb556"
+    },
+    {
+      "cardId": 2,
+      "file": "card-02.pgm",
+      "page": 1,
+      "slot": 1,
+      "topAnswer": "D",
+      "answersCW": [
+        "D",
+        "C",
+        "B",
+        "A"
+      ],
+      "sha256": "14f24162232cc19776b3b62275ba3466c2f9cb7edda5494b7d24e7be15a5a198"
+    },
+    {
+      "cardId": 7,
+      "file": "card-07.pgm",
+      "page": 4,
+      "slot": 0,
+      "topAnswer": "D",
+      "answersCW": [
+        "D",
+        "C",
+        "B",
+        "A"
+      ],
+      "sha256": "d15a709c46decbbce111ecf4cbd757ea428f99627c99c59b22c371ca4deb1fef"
+    },
+    {
+      "cardId": 16,
+      "file": "card-16.pgm",
+      "page": 8,
+      "slot": 1,
+      "topAnswer": "D",
+      "answersCW": [
+        "D",
+        "C",
+        "B",
+        "A"
+      ],
+      "sha256": "5ca2cf1b261f3c81d4a4f2df5a87e5a7ed37e3dca8238186b900c97d4679051c"
+    },
+    {
+      "cardId": 31,
+      "file": "card-31.pgm",
+      "page": 16,
+      "slot": 0,
+      "topAnswer": "D",
+      "answersCW": [
+        "D",
+        "C",
+        "B",
+        "A"
+      ],
+      "sha256": "7b8d98f41a762f32b5f967ca0bd856cd0dffa945cf8dd825f24aafc0880b11ae"
+    },
+    {
+      "cardId": 40,
+      "file": "card-40.pgm",
+      "page": 20,
+      "slot": 1,
+      "topAnswer": "B",
+      "answersCW": [
+        "B",
+        "A",
+        "D",
+        "C"
+      ],
+      "sha256": "d24a17bb1f2f9a83b55971852cd9bae70aa64204db726baf39d1c0f029677f8d"
+    },
+    {
+      "cardId": 41,
+      "file": "card-41.pgm",
+      "page": 21,
+      "slot": 0,
+      "topAnswer": "C",
+      "answersCW": [
+        "C",
+        "B",
+        "A",
+        "D"
+      ],
+      "sha256": "2de9c6939ae12cbb17639db68767ac799c53849fad127a55e86a6829612d7c4a"
+    },
+    {
+      "cardId": 52,
+      "file": "card-52.pgm",
+      "page": 26,
+      "slot": 1,
+      "topAnswer": "C",
+      "answersCW": [
+        "C",
+        "B",
+        "A",
+        "D"
+      ],
+      "sha256": "3534fa08ade0233d5e1627a766187cfea7a278b2e273f490f3db8d7b2c36776c"
+    },
+    {
+      "cardId": 63,
+      "file": "card-63.pgm",
+      "page": 32,
+      "slot": 0,
+      "topAnswer": "D",
+      "answersCW": [
+        "D",
+        "C",
+        "B",
+        "A"
+      ],
+      "sha256": "71c4215a918f730fbaccb6f1528d2f54cd5afb3184fb0acb78a51712dd73c685"
+    }
+  ]
+}
