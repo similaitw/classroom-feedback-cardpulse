@@ -3,6 +3,9 @@ import type { GrayImage, Quad } from './geometry.js';
 import { referenceData } from './references.generated.js';
 import { detectCandidates } from './detector.js';
 
+export { TemporalCollector, temporalDefaults } from './collector.js';
+export type { TemporalPolicy, QuestionToken, CollectedResponse } from './collector.js';
+
 export { detectCandidates, detectorParameters } from './detector.js';
 
 export { normalizeCandidate } from './geometry.js';
