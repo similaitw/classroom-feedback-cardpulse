@@ -4,3 +4,5 @@ dist/
 tmp/
 .npm-cache/
 __pycache__/
+data/real-captures/
+benchmark-results/
