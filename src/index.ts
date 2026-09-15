@@ -1,6 +1,9 @@
 import { normalizeCandidate, quadResolution, validImage, validQuad } from './geometry.js';
 import type { GrayImage, Quad } from './geometry.js';
 import { referenceData } from './references.generated.js';
+import { detectCandidates } from './detector.js';
+
+export { detectCandidates, detectorParameters } from './detector.js';
 
 export { normalizeCandidate } from './geometry.js';
 export type { GrayImage, Point, Quad } from './geometry.js';
@@ -10,6 +13,25 @@ export type RejectReason = 'invalid-image' | 'invalid-quad' | 'low-resolution' |
 export type ScanResult =
   | { status: 'detected'; detection: ScanDetection }
   | { status: 'uncertain'; reason: RejectReason; confidence: number };
+
+export type FrameDetection = { quad: Quad; detection: ScanDetection };
+export type FrameScanResult = {
+  detections: FrameDetection[];
+  uncertain: { quad: Quad; reason: RejectReason; confidence: number }[];
+};
+
+/** Full still-frame scan, in deterministic geometric order. Invalid input throws.
+ * Spatially separate copies of the same ID are preserved; no cross-frame state.
+ */
+export function scanFrame(image: GrayImage): FrameScanResult {
+  const result: FrameScanResult = { detections: [], uncertain: [] };
+  for (const quad of detectCandidates(image)) {
+    const decoded = scanCandidate(image, quad);
+    if (decoded.status === 'detected') result.detections.push({ quad, detection: decoded.detection });
+    else result.uncertain.push({ quad, reason: decoded.reason, confidence: decoded.confidence });
+  }
+  return result;
+}
 
 /** Fixed baseline policy; tune only against separately labeled validation data. */
 export const thresholds = Object.freeze({

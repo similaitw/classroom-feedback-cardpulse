@@ -10,6 +10,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint src tests eslint.config.mjs",
     "test": "npm run build && node --test tests/*.test.mjs",
+    "benchmark:frame": "npm run build && node tests/benchmark-frame.mjs",
     "references:generate": "python scripts/generate_references.py",
     "references:check": "python scripts/generate_references.py --check"
   },
